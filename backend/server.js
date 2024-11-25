@@ -10,7 +10,11 @@ dotenv.config();
 const app = express();
 
 app.use(bodyParser.json());
-app.use(cors({ origin: 'http://localhost:3000' }));
+//app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({
+    origin: 'https://fashion-store-snowy-delta.vercel.app', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE']
+}));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 console.log('File uploaded: ', path.join(__dirname, 'uploads'))
 
